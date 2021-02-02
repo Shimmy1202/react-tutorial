@@ -1,0 +1,10 @@
+{
+  "editor.fontLigatures": null,
+  "editor.quickSuggestions": null,
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "emmet.includeLanguages": {
+    "javascript": "html"
+  }
+}
