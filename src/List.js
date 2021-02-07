@@ -1,8 +1,5 @@
 import styled from "styled-components";
-
-const Container = styled.div`
-  padding: 12px 64px;
-`;
+import { TabBodyContainer } from "./components/tab-body-container";
 
 const ListItem = styled.div`
   padding: 8px 16px;
@@ -14,10 +11,10 @@ const ListItem = styled.div`
 
 export const List = ({ langs }) => {
   return (
-    <Container>
+    <TabBodyContainer title="取扱い言語リスト">
       {langs.map((lang, index) => {
         return <ListItem key={index}>{lang}</ListItem>;
       })}
-    </Container>
+    </TabBodyContainer>
   );
 };
