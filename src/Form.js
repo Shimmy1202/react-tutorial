@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Button } from "./components/button";
 import { TabBodyContainer } from "./components/tab-body-container";
+import { FormModal } from "./FormModal";
 
 const Label = styled.label`
   display: flex;
@@ -26,12 +27,13 @@ const InputButton = styled(Button)`
 
 export const Form = ({ onAddLang }) => {
   const [text, setText] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
-  const submitForm = (event) => {
+  const submitForm = (e) => {
     // form のイベントをキャンセルしている
     // event.preventDefault() を入れないとページの更新処理が勝手に走ってしまう(らしい)。
-    event.preventDefault();
-    onAddLang(text);
+    e.preventDefault();
+    setShowModal(true);
   };
 
   return (
@@ -49,6 +51,13 @@ export const Form = ({ onAddLang }) => {
           <InputButton>追加</InputButton>
         </ButtonContainer>
       </form>
+      { 
+        showModal && 
+          <FormModal 
+            confirm={()=>onAddLang(text)}
+            cancel={()=>setShowModal(false)}
+          ></FormModal>
+      }
     </TabBodyContainer>
   );
 };

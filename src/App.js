@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { List } from "./List";
 import { Form } from "./Form";
 import { getLanguages } from "./const/languages";
@@ -63,7 +63,6 @@ function App({ data }) {
         </HeaderUl>
       </Header>
       {tab === "list" ? <List langs={langs} /> : <Form onAddLang={addLang} />}
-      <Modal />
     </div>
   );
 }
